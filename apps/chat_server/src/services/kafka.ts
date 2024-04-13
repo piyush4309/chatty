@@ -55,8 +55,9 @@ export async function startMessageConsumer() {
             text: message.value?.toString(),
           },
         });
+        console.log("added entry to postgresql")
       } catch (err) {
-        console.log("Something is wrong");
+        console.log(`Something is wrong :  ${err}`);
         pause();
         setTimeout(() => {
           consumer.resume([{ topic: "MESSAGES" }]);
